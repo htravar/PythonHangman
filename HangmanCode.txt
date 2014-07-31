@@ -1,0 +1,32 @@
+#PYTHON HANGMAN 
+#THIS FUNCTION ADDS LETTERS TO AN EMPTY LIST AS THE USER MAKES GUESSES
+secret_word = ['c','l','a','p','t','r','a','p']
+letters_guessed = []
+def add_letters():
+	count = 8
+		#secret word is 8 letters long
+	while count >= 1:
+		#to print "Guesses left: 0" after last guess entered
+
+		x=raw_input("Enter a letter.\n")
+		if x.isalpha() == False:
+			x = "_"
+			letters_guessed.append(x)
+				#add each guess to the empty list
+			count -= 1
+			print "".join(letters_guessed) #prints out 						#updated string of guesses with each 						#iteration
+			print "Guesses left:  ", count
+		else:
+			letters_guessed.append(x)
+			count -= 1
+			print "".join(letters_guessed)
+			print "Guesses left:  ", count
+
+#now compare the lists and see if the user got it right
+def compare():
+	sorted(secret_word)
+	sorted(letters_guessed)
+	if secret_word == letters_guessed:
+		print True
+	else:
+		print False
